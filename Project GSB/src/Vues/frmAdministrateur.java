@@ -8,13 +8,11 @@ package Vues;
 import Entity.FonctionsMetier;
 import Model.ModelPraticien;
 import Model.ModelSpecialite;
-import Model.ModelUser;
 
 
 public class frmAdministrateur extends javax.swing.JFrame {
 
     FonctionsMetier fm;
-    ModelUser mdlUser;
     ModelSpecialite mdlSpecialite;
     ModelPraticien mdlPraticien;
     /**
@@ -37,10 +35,6 @@ public class frmAdministrateur extends javax.swing.JFrame {
         tblPraticiens = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblSpecialite = new javax.swing.JTable();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblUtilisateurs = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblTickets = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -69,50 +63,16 @@ public class frmAdministrateur extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblSpecialite);
 
-        tblUtilisateurs.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        tblUtilisateurs.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblUtilisateursMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tblUtilisateurs);
-
-        tblTickets.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        tblTickets.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblTicketsMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(tblTickets);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,11 +81,7 @@ public class frmAdministrateur extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(511, Short.MAX_VALUE))
         );
 
         pack();
@@ -134,24 +90,13 @@ public class frmAdministrateur extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         fm = new FonctionsMetier();
-        mdlUser=new ModelUser();
-        mdlUser.LoadDatas(fm.getAllUsers());
         mdlPraticien = new ModelPraticien();
         mdlPraticien.LoadDatas(fm.getAllPraticiens());
         mdlSpecialite = new ModelSpecialite();
         mdlSpecialite.LoadDatasSpe(fm.getAllSpecialite());
         tblSpecialite.setModel(mdlSpecialite);
-        tblUtilisateurs.setModel(mdlUser);
         tblPraticiens.setModel(mdlPraticien);
     }//GEN-LAST:event_formWindowOpened
-
-    private void tblTicketsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTicketsMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tblTicketsMouseClicked
-
-    private void tblUtilisateursMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUtilisateursMouseClicked
-     
-    }//GEN-LAST:event_tblUtilisateursMouseClicked
 
     /**
      * @param args the command line arguments
@@ -190,13 +135,9 @@ public class frmAdministrateur extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable tblPraticiens;
     private javax.swing.JTable tblSpecialite;
-    private javax.swing.JTable tblTickets;
-    private javax.swing.JTable tblUtilisateurs;
     // End of variables declaration//GEN-END:variables
 }
