@@ -16,4 +16,6 @@ public interface IMetier
     public ArrayList<Specialite>getAllSpecialite();
     
     public ArrayList<Activite>getAllActivite();
+    
+    public void insererSpecialite(int spe_code,String libelle);
 }
