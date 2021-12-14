@@ -6,6 +6,7 @@
 package Vues;
 
 import Entity.FonctionsMetier;
+import Model.ModelActivite;
 import Model.ModelPraticien;
 import Model.ModelSpecialite;
 
@@ -15,6 +16,7 @@ public class frmAdministrateur extends javax.swing.JFrame {
     FonctionsMetier fm;
     ModelSpecialite mdlSpecialite;
     ModelPraticien mdlPraticien;
+    ModelActivite mdlActivite;
     /**
      * Creates new form frmAdministrateur
      */
@@ -35,6 +37,8 @@ public class frmAdministrateur extends javax.swing.JFrame {
         tblPraticiens = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblSpecialite = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblActivite = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -63,13 +67,25 @@ public class frmAdministrateur extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblSpecialite);
 
+        tblActivite.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tblActivite);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
                 .addGap(59, 59, 59)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(86, Short.MAX_VALUE))
@@ -81,7 +97,9 @@ public class frmAdministrateur extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
-                .addContainerGap(511, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(272, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,6 +112,9 @@ public class frmAdministrateur extends javax.swing.JFrame {
         mdlPraticien.LoadDatas(fm.getAllPraticiens());
         mdlSpecialite = new ModelSpecialite();
         mdlSpecialite.LoadDatasSpe(fm.getAllSpecialite());
+        mdlActivite = new ModelActivite();
+        mdlActivite.LoadDatasActivite(fm.getAllActivite());
+        tblActivite.setModel(mdlActivite);
         tblSpecialite.setModel(mdlSpecialite);
         tblPraticiens.setModel(mdlPraticien);
     }//GEN-LAST:event_formWindowOpened
@@ -135,8 +156,10 @@ public class frmAdministrateur extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable tblActivite;
     private javax.swing.JTable tblPraticiens;
     private javax.swing.JTable tblSpecialite;
     // End of variables declaration//GEN-END:variables

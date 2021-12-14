@@ -9,12 +9,11 @@ import java.util.ArrayList;
 
 public interface IMetier 
 {
-    //on ecrit ici toutes les methodes qpour aller chercher les données dans la base
-    public ArrayList<Utilisateur>getAllUsers();
-    //passer en parametre un id pour avoir tout ses tickets 
     public Utilisateur VerifierIdentifiants (String login,String mdp);
     
     public ArrayList<Praticien>getAllPraticiens();
     
     public ArrayList<Specialite>getAllSpecialite();
+    
+    public ArrayList<Activite>getAllActivite();
 }

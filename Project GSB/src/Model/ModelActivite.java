@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Model;
-
-import Entity.Specialite;
+import Entity.Activite;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.AbstractTableModel;
@@ -14,8 +13,8 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author stelz
  */
-public class ModelSpecialite extends AbstractTableModel{
-    
+public class ModelActivite extends AbstractTableModel{
+
     private String[]nomsColonnes;
     private Vector<String[]>rows;
     
@@ -26,12 +25,12 @@ public class ModelSpecialite extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return nomsColonnes.length;
+         return nomsColonnes.length;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return rows.get(rowIndex)[columnIndex];
+        return rows.get(rowIndex)[columnIndex]; 
     }
     
     @Override
@@ -40,17 +39,13 @@ public class ModelSpecialite extends AbstractTableModel{
         return nomsColonnes[numColonne];
     }
     
-       public void LoadDatasSpe(ArrayList<Specialite>desSpecialites)
-    {
-        nomsColonnes = new String[]{"SPE_CODE","LIBELLE"};
-        rows= new Vector<String[]>();
+     public void LoadDatasActivite(ArrayList<Activite>desActivites){
+        nomsColonnes = new String[]{"num","date","lieu","theme","motif"};
+        rows = new Vector<String[]>();
         
-        for (Specialite s : desSpecialites)
-        {
-            rows.add(new String[] {String.valueOf(s.getSpeCode()),s.getSpeLibelle()});
+        for (Activite a  : desActivites){
+             rows.add(new String[] {String.valueOf(a.getNumActivite()),a.getDateActivite(),a.getLieuActivite(),a.getThemeActivite(),a.getMotifActivite()});
         }
         fireTableDataChanged();
-    }
 }
-
-
+}

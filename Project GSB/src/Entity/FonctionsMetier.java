@@ -23,28 +23,6 @@ public class FonctionsMetier implements IMetier
     private Connection maCnx;
     
     @Override
-    public ArrayList<Utilisateur> getAllUsers() 
-    {
-        ArrayList<Utilisateur>mesUsers = new ArrayList <Utilisateur>();
-        try {
-            maCnx=ConnexionBdd.getCnx();
-            //on ecrit dans le ps la requete
-            ps= maCnx.prepareStatement("select idUser,nomUser from users");
-            
-            rs=ps.executeQuery();
-            while(rs.next())
-            {
-                Utilisateur u = new Utilisateur((rs.getInt(1)),rs.getString(2),"");
-                mesUsers.add(u);
-            }
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return mesUsers;
-    }
-
-    @Override
     public Utilisateur VerifierIdentifiants(String login, String mdp) {
         Utilisateur u = null;
         try {
@@ -108,5 +86,26 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mesSpecialites; 
+    }
+
+    @Override
+    public ArrayList<Activite> getAllActivite() {
+         ArrayList<Activite>mesActivites = new ArrayList <Activite>();
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            //on ecrit dans le ps la requete
+            ps= maCnx.prepareStatement("select * from activite_compl");
+            
+            rs=ps.executeQuery();
+            while(rs.next())
+            {
+                Activite a = new Activite((rs.getInt(1)),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+                mesActivites.add(a);
+            }
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mesActivites; 
     }
 }
