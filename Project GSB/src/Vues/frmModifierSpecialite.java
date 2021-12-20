@@ -67,6 +67,11 @@ public class frmModifierSpecialite extends javax.swing.JFrame {
 
             }
         ));
+        tblPraticiens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPraticiensMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblPraticiens);
 
         jButton1.setText("Modifier");
@@ -133,18 +138,16 @@ public class frmModifierSpecialite extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
-
-    private void tblUtilisateursMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUtilisateursMouseClicked
-        int numP = Integer.parseInt(tblPraticiens.getValueAt(tblPraticiens.getSelectedRow(),0).toString());
+    private void tblPraticiensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPraticiensMouseClicked
+          int numpraticien = Integer.parseInt(tblPraticiens.getValueAt(tblPraticiens.getSelectedRow(),0).toString());
         fm = new FonctionsMetier();
         ModelSpecialite mdlSpecialite = new ModelSpecialite();
         
-        mdlSpecialite.LoadDats2Colonnes(fm.getAllSpecialiteByPra_num(numP));
+        mdlSpecialite.LoadDats2Colonnes(fm.getAllSpecialiteByPra_num(numpraticien));
         
         tblSpecialite.setModel(mdlSpecialite);
-        
-    }
+    }//GEN-LAST:event_tblPraticiensMouseClicked
+
     /**
      * @param args the command line arguments
      */

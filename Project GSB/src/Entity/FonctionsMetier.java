@@ -78,7 +78,7 @@ public class FonctionsMetier implements IMetier
             rs=ps.executeQuery();
             while(rs.next())
             {
-                Specialite s = new Specialite((rs.getInt(1)),rs.getString(2));
+                Specialite s = new Specialite((rs.getInt(1)),rs.getString(2) , rs.getInt(3));
                 mesSpecialites.add(s);
             }
            
@@ -119,6 +119,20 @@ public class FonctionsMetier implements IMetier
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public ArrayList<Specialite> getAllSpecialiteByPra_num(int unNum) {
+        ArrayList<Specialite>lesSpecialite = new ArrayList <Specialite>();
+        try {
+            maCnx=ConnexionBdd.getCnx();
+        ps= maCnx.prepareStatement("SELECT * FROM `specialite` INNER JOIN praticien on specialite.SPE_CODE= praticien.PRA_NUM where pra_num="+unNum);
+        rs=ps.executeQuery(); 
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+     }
     
     
 }
