@@ -160,8 +160,9 @@ public class FonctionsMetier implements IMetier
     public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double note, int typeCode) {
         try {
             maCnx=ConnexionBdd.getCnx();
-            ps= maCnx.prepareStatement("INSERT INTO praticien ('PRA_NUM','PRA_NOM','PRA_PRENOM','PRA_ADRESSE','PRA_CP','PRA_VILLE','PRA_COEF','typeCode') VALUES (0,'"+nom+"','"+prenom+"',+'"+adresse+"',+'"+codePostal+"',+'"+ville+"','"+note+"','"+typeCode+"'");
-            rs = ps.executeQuery();
+            String maSQL = "INSERT INTO praticien(PRA_NUM,PRA_NOM,PRA_PRENOM,PRA_ADRESSE,PRA_CP,PRA_VILLE,PRA_COEFNOTORIETE,tc) VALUES ('"+num+"','"+nom+"','"+prenom+"','"+adresse+"','"+codePostal+"','"+ville+"','"+note+"','"+typeCode+"')";
+            ps= maCnx.prepareStatement(maSQL);
+            ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }

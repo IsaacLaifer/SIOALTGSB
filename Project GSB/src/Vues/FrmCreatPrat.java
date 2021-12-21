@@ -192,7 +192,8 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         String N= txtNotePrat.getText();
         double notePrat = Double.parseDouble(N);
         int codePostalPrat = Integer.parseInt(TCP);
-        fm.InsererPraticien(0, txtNomPrat.getText(), txtPrenomPrat.getText(), txtAdressePrat.getText(), txtCodePostalePrat.getText(), txtVillePrat.getText(),notePrat,codePostalPrat);
+        int idLastPrat = fm.getLastIdPraticien();
+        fm.InsererPraticien(idLastPrat, txtNomPrat.getText(), txtPrenomPrat.getText(), txtAdressePrat.getText(), txtCodePostalePrat.getText(), txtVillePrat.getText(),notePrat,codePostalPrat);
     }//GEN-LAST:event_btnInsererPratMouseClicked
 
     /**
