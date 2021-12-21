@@ -15,10 +15,9 @@ public class Specialite {
     private String speLibelle;
     private int praNum;
     
-    public Specialite(int unCode, String unLibelle, int unNum){
+    public Specialite(int unCode, String unLibelle){
         speCode = unCode;
         speLibelle= unLibelle;
-        praNum= unNum;
     }
 
     /**
@@ -34,13 +33,4 @@ public class Specialite {
     public String getSpeLibelle() {
         return speLibelle;
     }
-
-    /**
-     * @return the praNum
-     */
-    public int getPraNum() {
-        return praNum;
-    }
-    
-    
 }

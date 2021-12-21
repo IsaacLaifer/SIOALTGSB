@@ -119,7 +119,6 @@ public class frmAdministrateur extends javax.swing.JFrame {
         tblPraticiens.setModel(mdlPraticien);
     }//GEN-LAST:event_formWindowOpened
 
-    
     /**
      * @param args the command line arguments
      */

@@ -78,7 +78,7 @@ public class FonctionsMetier implements IMetier
             rs=ps.executeQuery();
             while(rs.next())
             {
-                Specialite s = new Specialite((rs.getInt(1)),rs.getString(2) , rs.getInt(3));
+                Specialite s = new Specialite((rs.getInt(1)),rs.getString(2));
                 mesSpecialites.add(s);
             }
            
@@ -133,6 +133,33 @@ public class FonctionsMetier implements IMetier
         }
         return null;
      }
+
+    @Override
+    public int getLastIdPraticien() {
+               int idPrat = 0;
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            ps=maCnx.prepareStatement("SELECT max(pra_num) from praticien");
+            rs=ps.executeQuery();
+            rs.next();
+            idPrat = rs.getInt(1) + 1;
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return idPrat;
+    }
+    
+    
+    @Override
+    public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double note, int typeCode) {
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            ps= maCnx.prepareStatement("INSERT INTO praticien ('PRA_NUM','PRA_NOM','PRA_PRENOM','PRA_ADRESSE','PRA_CP','PRA_VILLE','PRA_COEF','typeCode') VALUES (0,'"+nom+"','"+prenom+"',+'"+adresse+"',+'"+codePostal+"',+'"+ville+"','"+note+"','"+typeCode+"'");
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
 }

@@ -11,13 +11,20 @@ public interface IMetier
 {
     public Utilisateur VerifierIdentifiants (String login,String mdp);
     
+    /* AFFICHER */
     public ArrayList<Praticien>getAllPraticiens();
     
     public ArrayList<Specialite>getAllSpecialite();
     
+    public ArrayList<Specialite> getAllSpecialiteByPra_num(int unNum);
+    
     public ArrayList<Activite>getAllActivite();
     
+    /* INSERER */
     public void insererSpecialite(int spe_code,String libelle);
     
-    public ArrayList<Specialite> getAllSpecialiteByPra_num(int unNum);
+    public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double Note, int typeCode);
+    
+    /* AUTRES */
+    public int getLastIdPraticien();
 }
