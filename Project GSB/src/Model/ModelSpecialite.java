@@ -52,10 +52,12 @@ public class ModelSpecialite extends AbstractTableModel{
         fireTableDataChanged();
     }
 
-    public void LoadDats2Colonnes(ArrayList<Specialite> allSpecialiteByPra_num) {
-         nomsColonnes = new String[]{"SPE_CODE","LIBELLE"};
-        rows= new Vector<String[]>();
-         for (Specialite sp : allSpecialiteByPra_num)
+    public void LoadDats2Colonnes(ArrayList<Specialite>allSpecialiteByPra_num) {
+        
+        nomsColonnes = new String[]{"SPE_CODE","LIBELLE"};
+        rows= new Vector<>();
+        
+        for (Specialite sp : allSpecialiteByPra_num)
         {
             rows.add(new String[] {String.valueOf(sp.getSpeCode()),sp.getSpeLibelle()});
         }

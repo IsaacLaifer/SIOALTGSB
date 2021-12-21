@@ -16,7 +16,7 @@ public interface IMetier
     
     public ArrayList<Specialite>getAllSpecialite();
     
-    public ArrayList<Specialite> getAllSpecialiteByPra_num(int unNum);
+    public ArrayList<Specialite>getAllSpecialiteByPraNum(int unNum);
     
     public ArrayList<Activite>getAllActivite();
     

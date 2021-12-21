@@ -121,17 +121,23 @@ public class FonctionsMetier implements IMetier
     }
 
     @Override
-    public ArrayList<Specialite> getAllSpecialiteByPra_num(int unNum) {
-        ArrayList<Specialite>lesSpecialite = new ArrayList <Specialite>();
+    public ArrayList<Specialite> getAllSpecialiteByPraNum(int unNum) {
+        ArrayList<Specialite>mesSpecialites = new ArrayList<Specialite>();
         try {
-            maCnx=ConnexionBdd.getCnx();
-        ps= maCnx.prepareStatement("SELECT * FROM `specialite` INNER JOIN praticien on specialite.SPE_CODE= praticien.PRA_NUM where pra_num="+unNum);
+        maCnx=ConnexionBdd.getCnx();
+          ps= maCnx.prepareStatement("SELECT SPE_CODE , SPE_LIBELLE FROM SPECIALITE INNER JOIN posseder on specialite.SPE_CODE = posseder.codeSpe where pra_num ="+unNum);
         rs=ps.executeQuery(); 
+        rs=ps.executeQuery();
+            while(rs.next())
+            {
+                Specialite s = new Specialite((rs.getInt(1)),rs.getString(2));
+                mesSpecialites.add(s);
+            }
         }
         catch (SQLException ex) {
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return mesSpecialites;
      }
 
     @Override
@@ -155,7 +161,7 @@ public class FonctionsMetier implements IMetier
         try {
             maCnx=ConnexionBdd.getCnx();
             ps= maCnx.prepareStatement("INSERT INTO praticien ('PRA_NUM','PRA_NOM','PRA_PRENOM','PRA_ADRESSE','PRA_CP','PRA_VILLE','PRA_COEF','typeCode') VALUES (0,'"+nom+"','"+prenom+"',+'"+adresse+"',+'"+codePostal+"',+'"+ville+"','"+note+"','"+typeCode+"'");
-            ps.executeUpdate();
+            rs = ps.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }

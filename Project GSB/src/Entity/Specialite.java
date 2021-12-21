@@ -13,7 +13,6 @@ public class Specialite {
     
     private int speCode;
     private String speLibelle;
-    private int praNum;
     
     public Specialite(int unCode, String unLibelle){
         speCode = unCode;

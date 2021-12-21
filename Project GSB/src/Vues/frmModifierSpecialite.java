@@ -143,7 +143,7 @@ public class frmModifierSpecialite extends javax.swing.JFrame {
         fm = new FonctionsMetier();
         ModelSpecialite mdlSpecialite = new ModelSpecialite();
         
-        mdlSpecialite.LoadDats2Colonnes(fm.getAllSpecialiteByPra_num(numpraticien));
+        mdlSpecialite.LoadDats2Colonnes(fm.getAllSpecialiteByPraNum(numpraticien));
         
         tblSpecialite.setModel(mdlSpecialite);
     }//GEN-LAST:event_tblPraticiensMouseClicked

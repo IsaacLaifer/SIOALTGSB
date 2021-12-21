@@ -55,6 +55,11 @@ public class frmAdministrateur extends javax.swing.JFrame {
 
             }
         ));
+        tblPraticiens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPraticiensMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblPraticiens);
 
         tblSpecialite.setModel(new javax.swing.table.DefaultTableModel(
@@ -118,6 +123,14 @@ public class frmAdministrateur extends javax.swing.JFrame {
         tblSpecialite.setModel(mdlSpecialite);
         tblPraticiens.setModel(mdlPraticien);
     }//GEN-LAST:event_formWindowOpened
+
+    private void tblPraticiensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPraticiensMouseClicked
+        int praNum = Integer.parseInt(tblPraticiens.getValueAt(tblPraticiens.getSelectedRow(),0).toString());
+        fm = new FonctionsMetier();
+        ModelSpecialite mdlSpe = new ModelSpecialite();
+        mdlSpe.LoadDatasSpe(fm.getAllSpecialiteByPraNum(praNum));
+        tblSpecialite.setModel(mdlSpe);
+    }//GEN-LAST:event_tblPraticiensMouseClicked
 
     /**
      * @param args the command line arguments
