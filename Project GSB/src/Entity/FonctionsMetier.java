@@ -112,9 +112,9 @@ public class FonctionsMetier implements IMetier
     @Override
     public void insererSpecialite(int spe_code, String libelle) {
         try {        
-maCnx=ConnexionBdd.getCnx(); //initialiser la requete
+            maCnx=ConnexionBdd.getCnx(); //initialiser la requete
 
-            ps= maCnx.prepareStatement("INSERT INTO `specialite`(`SPE_CODE`, `SPE_LIBELLE`) VALUES ('"+libelle+"')");
+            ps= maCnx.prepareStatement("INSERT INTO `specialite`(`SPE_CODE`, `SPE_LIBELLE`) VALUES ('"+spe_code+"','"+libelle+"')");
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);

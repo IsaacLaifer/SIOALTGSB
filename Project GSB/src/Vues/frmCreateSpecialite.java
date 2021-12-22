@@ -183,12 +183,7 @@ public class frmCreateSpecialite extends javax.swing.JFrame {
         // TODO add your handling code here:
         ConnexionBdd cnx = new ConnexionBdd();
         fm = new FonctionsMetier();
-        
-        String tns = txtNoteSpe.getText();
-        
-        int lib= Integer.parseInt(tns);
-        
-        fm.insererSpecialite(0, lib.getText());
+        fm.insererSpecialite(0,txtNoteSpe.getText());
     }//GEN-LAST:event_btninsererspecialiteMouseClicked
 
     private void txtSpeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSpeCodeActionPerformed
