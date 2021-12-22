@@ -65,6 +65,11 @@ public class FrmCreatPrat extends javax.swing.JFrame {
 
         txtNumPrat.setEditable(false);
         txtNumPrat.setBackground(new java.awt.Color(153, 153, 153));
+        txtNumPrat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumPratActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Nom");
 
@@ -195,6 +200,10 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         int idLastPrat = fm.getLastIdPraticien();
         fm.InsererPraticien(idLastPrat, txtNomPrat.getText(), txtSPeCode.getText(), txtAdressePrat.getText(), txtCodePostalePrat.getText(), txtVillePrat.getText(),notePrat,codePostalPrat);
     }//GEN-LAST:event_btnInsererPratMouseClicked
+
+    private void txtNumPratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumPratActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumPratActionPerformed
 
     /**
      * @param args the command line arguments

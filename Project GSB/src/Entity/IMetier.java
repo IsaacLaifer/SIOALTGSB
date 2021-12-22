@@ -27,4 +27,6 @@ public interface IMetier
     
     /* AUTRES */
     public int getLastIdPraticien();
+    
+    public int getLastIdSpe();
 }

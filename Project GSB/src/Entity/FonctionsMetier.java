@@ -158,6 +158,10 @@ public class FonctionsMetier implements IMetier
     }
     
     
+   
+   
+    
+    
     @Override
     public void InsererPraticien(int num, String nom, String prenom, String adresse, String codePostal, String ville, double note, int typeCode) {
         try {
@@ -168,6 +172,21 @@ public class FonctionsMetier implements IMetier
         } catch (SQLException ex) {
             Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public int getLastIdSpe() {
+          int idSpe = 0;
+        try {
+            maCnx=ConnexionBdd.getCnx();
+            ps=maCnx.prepareStatement("SELECT max(spe_code) from specialite");
+            rs=ps.executeQuery();
+            rs.next();
+            idSpe = rs.getInt(1) + 1;
+        } catch (SQLException ex) {
+            Logger.getLogger(FonctionsMetier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return idSpe;
     }
     
     
