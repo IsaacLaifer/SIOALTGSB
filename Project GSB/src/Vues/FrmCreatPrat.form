@@ -59,7 +59,7 @@
               </Group>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txtPrenomPrat" max="32767" attributes="0"/>
+                  <Component id="txtSPeCode" max="32767" attributes="0"/>
                   <Component id="txtAdressePrat" pref="122" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
@@ -104,7 +104,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtNumPrat" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtPrenomPrat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSPeCode" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtCodePostalePrat" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNotePrat" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -155,7 +155,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtNomPrat">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPrenomPrat">
+    <Component class="javax.swing.JTextField" name="txtSPeCode">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>

@@ -37,7 +37,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         txtNumPrat = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtNomPrat = new javax.swing.JTextField();
-        txtPrenomPrat = new javax.swing.JTextField();
+        txtSPeCode = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -119,7 +119,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                     .addComponent(txtNumPrat, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPrenomPrat)
+                    .addComponent(txtSPeCode)
                     .addComponent(txtAdressePrat, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -154,7 +154,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNumPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrenomPrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSPeCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCodePostalePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNotePrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -193,7 +193,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
         double notePrat = Double.parseDouble(N);
         int codePostalPrat = Integer.parseInt(TCP);
         int idLastPrat = fm.getLastIdPraticien();
-        fm.InsererPraticien(idLastPrat, txtNomPrat.getText(), txtPrenomPrat.getText(), txtAdressePrat.getText(), txtCodePostalePrat.getText(), txtVillePrat.getText(),notePrat,codePostalPrat);
+        fm.InsererPraticien(idLastPrat, txtNomPrat.getText(), txtSPeCode.getText(), txtAdressePrat.getText(), txtCodePostalePrat.getText(), txtVillePrat.getText(),notePrat,codePostalPrat);
     }//GEN-LAST:event_btnInsererPratMouseClicked
 
     /**
@@ -247,7 +247,7 @@ public class FrmCreatPrat extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomPrat;
     private javax.swing.JTextField txtNotePrat;
     private javax.swing.JTextField txtNumPrat;
-    private javax.swing.JTextField txtPrenomPrat;
+    private javax.swing.JTextField txtSPeCode;
     private javax.swing.JTextField txtTypeCodePrat;
     private javax.swing.JTextField txtVillePrat;
     // End of variables declaration//GEN-END:variables
